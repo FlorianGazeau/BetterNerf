@@ -1,0 +1,103 @@
+body {
+  font-family: "roboto";
+}
+
+.logo {
+  max-width: 60px;
+}
+
+.css-y00m2w-MuiPaper-root-MuiAppBar-root {
+  background: #2b2a2a !important;
+}
+
+.matches {
+  /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
+}
+.match {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  /* width: calc(((100% - 442px) / 12) * 12 + 374px); */
+  height: 100px;
+  margin: 20px 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  padding: 0 10px;
+}
+
+.league {
+  /* margin: 0 10px; */
+}
+.league img {
+  width: 30px;
+}
+
+.teams {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.teams .team1 {
+  text-align: right;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.teams .team2 {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.team-info {
+  width: 100px;
+}
+
+.team1 .team-info {
+  padding-right: 12px;
+}
+
+.team2 .team-info {
+  padding-left: 12px;
+}
+
+.team-info h2 {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.teams img {
+  margin: 16px 0;
+  box-sizing: content-box;
+  width: 40px;
+}
+
+.score {
+  display: flex;
+  flex-grow: 0.5;
+  justify-content: center;
+}
+
+.score p:nth-child(2) {
+  padding: 0 0.5em;
+}
+
+@media screen and (max-width: 800px) {
+  .status, .best-of, .league {
+    display: none;
+  }
+
+}
