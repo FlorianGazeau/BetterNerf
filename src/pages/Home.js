@@ -35,14 +35,13 @@ const Home = () => {
   function fetchData() {
     let headers = new Headers();
 
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-    headers.append('Authorization', 'Basic ');
-    headers.append('Origin','http://localhost:3000');
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Accept', 'application/json');
+    // headers.append('Authorization', 'Basic ');
+    // headers.append('Access-Control-Allow-Origin', '*');
+    // headers.append('Access-Control-Allow-Credentials', 'true');
 
     fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', {
-      // mode: 'no-cors',
-      // credentials: '',
       method: 'GET',
       headers: headers
     })
