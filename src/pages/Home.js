@@ -41,8 +41,8 @@ const Home = () => {
     headers.append('Origin','http://localhost:3000');
 
     fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', {
-      mode: 'cors',
-      // credentials: 'include',
+      // mode: 'no-cors',
+      // credentials: '',
       method: 'GET',
       headers: headers
     })
