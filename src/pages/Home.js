@@ -10,25 +10,45 @@ const Home = () => {
   const [runningMatches, setRunningMatches] = useState([]);
   const [upComingMatches, setUpComingMatches] = useState([])
   const [filter, setFilter] = useState('')
-  async function fetchData(query) {
-    if (!query) {
-      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
-      const data = await response.json();
-      setRunningMatches(data);
 
-      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w')
-      const dataUp = await resp.json()
-      setUpComingMatches(dataUp);
-    }
-    else {
-      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
-      const data = await response.json();
-      setRunningMatches(data);
+  // async function fetchData(query) {
+  //   if (!query) {
+  //     const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
+  //     const data = await response.json();
+  //     setRunningMatches(data);
 
-      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]=' + query);
-      const dataUp = await resp.json()
-      setUpComingMatches(dataUp);
-    }
+  //     const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w')
+  //     const dataUp = await resp.json()
+  //     setUpComingMatches(dataUp);
+  //   }
+  //   else {
+  //     const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
+  //     const data = await response.json();
+  //     setRunningMatches(data);
+
+  //     const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]=' + query);
+  //     const dataUp = await resp.json()
+  //     setUpComingMatches(dataUp);
+  //   }
+  // }
+
+  function fetchData() {
+    let headers = new Headers();
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+    headers.append('Authorization', 'Basic ');
+    headers.append('Origin','http://localhost:3000');
+
+    fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', {
+      mode: 'cors',
+      // credentials: 'include',
+      method: 'GET',
+      headers: headers
+    })
+    .then(response => response.json())
+    .then(json => setRunningMatches(json))
+    .catch(error => console.log('Authorization failed : ' + error.message));
   }
 
   useEffect(() => {
