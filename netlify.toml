@@ -1,4 +1,5 @@
-[build]
-  command = "yarn build && cd functions/node-fetch && yarn"
-  functions = "functions"
-  publish = "dist"
+[[redirects]]
+  from = "/cors-proxy/*"
+  to = ":splat"
+  status = 200
+  force = true
