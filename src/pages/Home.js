@@ -13,20 +13,20 @@ const Home = () => {
 
   async function fetchData(query) {
     if (!query) {
-      const response = await fetch('/cors-proxy/https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
+      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
       const data = await response.json();
       setRunningMatches(data);
 
-      const resp = await fetch('/cors-proxy/https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
+      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
       const dataUp = await resp.json()
       setUpComingMatches(dataUp);
     }
     else {
-      const response = await fetch('/cors-proxy/https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
+      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
       const data = await response.json();
       setRunningMatches(data);
 
-      const resp = await fetch('/cors-proxy/https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
+      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
       const dataUp = await resp.json()
       setUpComingMatches(dataUp);
     }
