@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/matches/running"
+  to = "https://api.pandascore.co"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
