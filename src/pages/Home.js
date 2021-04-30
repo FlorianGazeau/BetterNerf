@@ -13,13 +13,14 @@ const Home = () => {
 
   async function fetchData(query) {
 
-    var obj = {
-      headers: {
-        'Access-Control-Allow-Origin' : 'betternerf.netlify.app'
-      }
-    }
+    // let headers = new Headers()
+    // headers.append('Access-Control-Allow-Origin', '*')
+
+    // let req = new Request('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', headers: headers)
+    // let req = new Request('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', { method: 'GET', headers: headers })
+
     if (!query) {
-      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', obj);
+      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
       const data = await response.json();
       setRunningMatches(data);
 
