@@ -12,24 +12,30 @@ const Home = () => {
   const [filter, setFilter] = useState('')
 
   async function fetchData(query) {
+
+    var obj = {
+      headers: {
+        'Access-Control-Allow-Origin' : 'betternerf.netlify.app'
+      }
+    }
     if (!query) {
-      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
+      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w', obj);
       const data = await response.json();
       setRunningMatches(data);
 
-      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
-      const dataUp = await resp.json()
-      setUpComingMatches(dataUp);
+      // const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w');
+      // const dataUp = await resp.json()
+      // setUpComingMatches(dataUp);
     }
-    else {
-      const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
-      const data = await response.json();
-      setRunningMatches(data);
+    // else {
+    //   const response = await fetch('https://api.pandascore.co/matches/running?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
+    //   const data = await response.json();
+    //   setRunningMatches(data);
 
-      const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
-      const dataUp = await resp.json()
-      setUpComingMatches(dataUp);
-    }
+    //   const resp = await fetch('https://api.pandascore.co/matches/upcoming?token=eZcn3x0eOORd3EKU5q0r6J50QOGmlbbd3FG0C9LiMcEdRrw3c7w&filter[videogame]='+ query);
+    //   const dataUp = await resp.json()
+    //   setUpComingMatches(dataUp);
+    // }
   }
 
   // function fetchData() {
